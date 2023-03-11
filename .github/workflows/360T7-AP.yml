@@ -16,8 +16,8 @@ on:
   #   - cron: '0 0 1 * *'
 
 env:
-  REPO_URL: https://github.com/hanwckf/immortalwrt-mt798x
-  REPO_BRANCH: openwrt-21.02
+  REPO_URL: https://github.com/padavanonly/immortalwrtARM
+  REPO_BRANCH: mt7981
   FEEDS_CONF: 360T7-AP/feeds.conf.default
   CONFIG_FILE: 360T7-AP/.config
   DIY_P1_SH: 360T7-AP/diy1.sh
@@ -61,7 +61,7 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        git clone --single-branch -b $REPO_BRANCH $REPO_URL openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: 加载软件源
