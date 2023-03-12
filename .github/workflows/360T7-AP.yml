@@ -113,6 +113,7 @@ jobs:
         rm -rf *.manifest
         rm -rf feeds.buildinfo
         rm -rf sha256sums
+        rm -rf *toolchain*
         mv *sysupgrade.bin 360T7-AP-${{ env.FIRMWARE_VERSION }}-sysupgrade.bin || echo 没有找到 *sysupgrade.bin 文件
         mv *factory.bin 360T7-AP-${{ env.FIRMWARE_VERSION }}-factory.bin || echo 没有找到 *factory.bin 文件
         echo -e "$(sha256sum *)\n" > sha256sums
