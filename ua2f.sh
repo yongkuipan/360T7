@@ -5,7 +5,7 @@ hnat_path="/sys/kernel/debug/hnat/hook_toggle"
 [ -e $hnat_path ] && echo 0 > $hnat_path
 [ -e $hnat_path ] && (grep hook_toggle /etc/rc.local && echo '硬件加速已关闭！' || sed -i "/exit*/iecho 0 > \/sys\/kernel\/debug\/hnat\/hook_toggle" /etc/rc.local)
 ##############################################
-cp /etc/resolv.conf /etc/resolv.conf.bak && rm -rf /etc/resolv.conf && echo -e "search lan\nnameserver 127.0.0.1" > /etc/resolv.conf && echo "/etc/resolv.conf" >> /etc/sysupgrade.conf
+cp /etc/resolv.conf /etc/resolv.conf.bak && rm -rf /etc/resolv.conf && echo -e "search lan\nnameserver 223.5.5.5" > /etc/resolv.conf && echo "/etc/resolv.conf" >> /etc/sysupgrade.conf
 echo "设置防火墙规则中"
 echo "# 修改TTL值为128" >> /etc/firewall.user
 echo "iptables -t mangle -A POSTROUTING -j TTL --ttl-set 128" >> /etc/firewall.user
