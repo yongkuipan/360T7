@@ -14,7 +14,6 @@
 sed -i 's/192.168.6.1/192.168.3.1/g' package/base-files/files/bin/config_generate
 sed -i "s/hostname='ImmortalWrt'/hostname='Pardofelis'/g" package/base-files/files/bin/config_generate
 sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='QiYueYi $(date +"%y%m%d")'/g" package/base-files/files/etc/openwrt_release
-sed -i "s/Time/$(date +%y%m%d)/g" files/etc/banner
 target=$(grep -m 1 "CONFIG_TARGET_.*_.*=y" .config | sed "s/CONFIG_TARGET_\(.*\)_\(.*\)=y/\1\/\2/g")
 for configFile in $(ls target/linux/$target/config*)
 do

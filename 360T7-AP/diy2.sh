@@ -13,4 +13,3 @@
 # Modify default IP
 sed -i "s/hostname='ImmortalWrt'/hostname='Pardofelis'/g" package/base-files/files/bin/config_generate
 sed -i "s/DISTRIB_DESCRIPTION=.*/DISTRIB_DESCRIPTION='QiYueYi $(date +"%y%m%d")'/g" package/base-files/files/etc/openwrt_release
-sed -i "s/Time/$(date +%y%m%d)/g" files/etc/banner
