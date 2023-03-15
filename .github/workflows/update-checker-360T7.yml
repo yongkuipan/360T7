@@ -33,20 +33,6 @@ jobs:
       if: steps.cacheHash.outputs.cache-hit != 'true'
       run: |
          echo ${{ steps.getHash.outputs.commitHash }} | tee .commitHash
-        
-    - name: Email notification
-      uses: dawidd6/action-send-mail@master
-      if: steps.cacheHash.outputs.cache-hit != 'true' && !cancelled()
-      with:
-         server_address: smtp.163.com
-         server_port: 465
-         username: ${{ secrets.MAILUSERNAME }}
-         password: ${{ secrets.MAILPASSWORD }}
-         subject: padavanonly update source code
-         body: file://text.txt
-         to: ${{ secrets.MAIL }}
-         from: GitHub Actions For Checking Update
-         content_type: text/html
          
 #    - name: Trigger build
 #      if: steps.cacheHash.outputs.cache-hit != 'true'
