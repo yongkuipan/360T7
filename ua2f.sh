@@ -24,7 +24,7 @@ uci set ua2f.firewall.handle_mmtls=1
 uci set ua2f.firewall.handle_intranet=1
 uci commit ua2f
 echo "启动ua2f"
-service ua2f enable
-service ua2f start
+/etc/init.d/ua2f enable
+/etc/init.d/ua2f start
 echo "重启防火墙"
-service firewall restart
+/etc/init.d/firewall restart
